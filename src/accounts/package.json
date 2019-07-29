@@ -1,0 +1,19 @@
+{
+  "name": "@xarples/accounts",
+  "version": "0.0.0",
+  "description": "Xarples accounts service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "xarples",
+    "accounts",
+    "service"
+  ],
+  "author": "xarples",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.5.3"
+  }
+}
