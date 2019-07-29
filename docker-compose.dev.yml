@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  accounts:
+    container_name: xarples-accounts
+    build:
+      context: .
+      dockerfile: ./src/accounts/development.Dockerfile
+    ports:
+      - 5000:5000
+    environment:
+      - NODE_ENV=development
+    volumes: 
+      - ./src/accounts:/usr/local/src/xarples/accounts
+      - /usr/local/src/xarples/accounts/node_modules
