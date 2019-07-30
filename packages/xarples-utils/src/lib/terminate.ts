@@ -4,11 +4,11 @@ interface IParams {
   error?: Error,
   message?: string,
   stack?: string,
-  promise?: Promise<Error>
+  promise?: Promise<any>
 }
 
-export function terminate (code: number, reason: string) {
-  return (error: Error, p: Promise<Error>) => {
+export default function terminate (code: number, reason: string): (error: Error, promise: Promise<any>) => void {
+  return (error: Error, promise: Promise<any>): void => {
     let params: IParams = { code, reason }
 
     if (error) {
@@ -17,8 +17,8 @@ export function terminate (code: number, reason: string) {
       params.stack = error.stack
     }
 
-    if (p) {
-      params.promise = p
+    if (promise) {
+      params.promise = promise
     }
 
     if (code === 0) {
