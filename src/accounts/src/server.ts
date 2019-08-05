@@ -14,9 +14,13 @@ if (!module.parent) {
     logger.info(`Server listening on ${url}`)
   })
 
+  // @ts-ignore
   process.on('SIGINT', utils.terminate(0, 'SIGINT'))
+  // @ts-ignore
   process.on('SIGTERM', utils.terminate(0, 'SIGTERM'))
+  // @ts-ignore
   process.on('uncaughtException', utils.terminate(1, 'uncaughtException'))
+  // @ts-ignore
   process.on('unhandledRejection', utils.terminate(1, 'unhandledRejection'))
 }
 

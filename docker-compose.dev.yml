@@ -11,5 +11,6 @@ services:
     environment:
       - NODE_ENV=development
     volumes: 
-      - ./src/accounts:/usr/local/src/xarples/accounts
-      - /usr/local/src/xarples/accounts/node_modules
+      - .:/usr/local/src/xarples
+      - /usr/local/src/xarples/node_modules
+      - /usr/local/src/xarples/src/accounts/node_modules

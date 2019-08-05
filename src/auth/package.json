@@ -12,8 +12,5 @@
     "service"
   ],
   "author": "xarples",
-  "license": "MIT",
-  "devDependencies": {
-    "typescript": "^3.5.3"
-  }
+  "license": "MIT"
 }
