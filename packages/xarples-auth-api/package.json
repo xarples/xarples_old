@@ -1,5 +1,5 @@
 {
-  "name": "@xarples/auth",
+  "name": "@xarples/auth-api",
   "version": "0.0.0",
   "description": "Xarples auth service",
   "main": "index.js",

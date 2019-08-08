@@ -5,7 +5,7 @@ services:
     container_name: xarples-accounts
     build:
       context: .
-      dockerfile: ./src/accounts/development.Dockerfile
+      dockerfile: ./packages/xarples-accounts-api/development.Dockerfile
     ports:
       - 5000:5000
     environment:

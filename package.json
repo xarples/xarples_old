@@ -14,10 +14,5 @@
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
   },
-  "dependencies": {
-    "@xarples/config": "file:packages/xarples-config",
-    "@xarples/ui-react": "file:packages/xarples-ui-react",
-    "@xarples/ui-vue": "file:packages/xarples-ui-vue",
-    "@xarples/utils": "file:packages/xarples-utils"
-  }
+  "dependencies": {}
 }
