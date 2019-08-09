@@ -1,12 +1,17 @@
 import { ApolloServer } from 'apollo-server'
 import utils from '@xarples/utils'
+import setupDatabase from '@xarples/accounts-db'
 
 import schema from './schema'
 
 const logger = utils.logger.getLogger('@xarples/accounts')
+
 const server = new ApolloServer({
   schema,
-  debug: true
+  debug: true,
+  context: {
+    db: setupDatabase()
+  }
 })
 
 if (!module.parent) {

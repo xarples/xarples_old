@@ -4,7 +4,10 @@
   "description": "Xarples accounts db",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "start": "ts-node src/script.ts",
+    "seed": "ts-node prisma/seed.ts",
+    "postinstall": "prisma2 generate"
   },
   "keywords": [
     "xarples",
@@ -13,6 +16,10 @@
   ],
   "author": "xarples",
   "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "prisma2": "^2.0.0-preview-6.1"
+  },
+  "devDependencies": {
+    "typescript": "^3.5.3"
+  }
 }
