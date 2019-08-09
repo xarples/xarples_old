@@ -16,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "@xarples/utils": "0.0.0",
+    "@xarples/accounts-db": "0.0.0",
     "apollo-server": "^2.8.0",
     "graphql": "^14.4.2"
   },
