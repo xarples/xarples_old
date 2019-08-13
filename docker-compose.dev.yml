@@ -13,4 +13,6 @@ services:
     volumes: 
       - .:/usr/local/src/xarples
       - /usr/local/src/xarples/node_modules
-      - /usr/local/src/xarples/src/accounts/node_modules
+      - /usr/local/src/xarples/packages/xarples-utils/node_modules
+      - /usr/local/src/xarples/packages/xarples-accounts-db/node_modules
+      - /usr/local/src/xarples/packages/xarples-accounts-api/node_modules
