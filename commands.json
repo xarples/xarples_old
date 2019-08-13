@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "docker-compose up",
+    "build": "docker-compose build",
+    "stop": "docker-compose down",
+    "clean": "docker system prune -af",
+    "seed": "docker exec -it prisma run seed"
+  }
+}

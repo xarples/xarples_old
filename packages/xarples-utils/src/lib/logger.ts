@@ -33,13 +33,12 @@ const formatter = through((chunk, _, callback) => {
   }
 })
 
-export function getLogger (namespace: string): ILogger {
+bole.output({
+  level: process.env.DEBUG ? 'debug' : 'info',
+  stream: process.env.NODE_ENV === 'production' ? rotator : formatter
+})
 
-  bole.output({
-    level: process.env.DEBUG ? 'debug' : 'info',
-    stream: process.env.NODE_ENV === 'production' ? rotator : formatter
-  })
-  
+export function getLogger (namespace: string): ILogger {  
   return bole(namespace)
 }
 
