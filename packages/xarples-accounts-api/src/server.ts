@@ -1,6 +1,6 @@
 import { ApolloServer } from 'apollo-server'
 import utils from '@xarples/utils'
-import setupDatabase from '@xarples/accounts-db'
+import { setupDatabase } from '@xarples/accounts-db'
 
 import schema from './schema'
 
@@ -10,13 +10,14 @@ const utilsLogger = utils.logger.getLogger('@xarples/utils')
 const server = new ApolloServer({
   schema,
   debug: true,
-  // context: {
-  //   db: setupDatabase()
-  // }
+  context: {
+    db: setupDatabase()
+  }
 })
 
 if (!module.parent) {
   server.listen({ port: 5000 }).then(({ url }) => {
+    console.log(process.env.DB_HOST)
     logger.info(`Server listening on ${url}`)
   })
 

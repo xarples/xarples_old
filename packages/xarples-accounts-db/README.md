@@ -6,7 +6,7 @@
 
 ## Usage
 ```js
-import setupDatabase from '@xarples/accounts-db'
+import { setupDatabase } from '@xarples/accounts-db'
 
 const db = setupDatabase()
 

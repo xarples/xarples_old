@@ -10,9 +10,22 @@ services:
       - 5000:5000
     environment:
       - NODE_ENV=development
+      - DB_HOST=accounts-db
     volumes: 
       - .:/usr/local/src/xarples
       - /usr/local/src/xarples/node_modules
       - /usr/local/src/xarples/packages/xarples-utils/node_modules
       - /usr/local/src/xarples/packages/xarples-accounts-db/node_modules
       - /usr/local/src/xarples/packages/xarples-accounts-api/node_modules
+
+  accounts-db:
+    container_name: xarples-accounts-db
+    image: postgres:10.3
+    restart: always
+    ports:
+     - 5432:5432
+    environment:
+      POSTGRES_USER: accounts
+      POSTGRES_PASSWORD: accounts
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data

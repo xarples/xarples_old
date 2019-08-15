@@ -4,7 +4,7 @@ type IPhoton = Photon
 
 let photon: IPhoton
 
-export default function setupDatabase () {
+export function setupDatabase () {
   if (!photon) {
     photon = new Photon()
   }
