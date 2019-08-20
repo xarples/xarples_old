@@ -2,7 +2,13 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "dev": "lerna run dev --stream"
+    "start": "docker-compose up",
+    "build": "docker-compose build",
+    "stop": "docker-compose down",
+    "clean": "docker system prune -af",
+    "build-dev": "docker-compose -f docker-compose.dev.yml build",
+    "start-dev": "docker-compose -f docker-compose.dev.yml up",
+    "stop-dev": "docker-compose -f docker-compose.dev.yml down"
   },
   "devDependencies": {
     "@types/chalk": "^2.2.0",
