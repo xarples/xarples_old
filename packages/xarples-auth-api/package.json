@@ -14,6 +14,7 @@
   "author": "xarples",
   "license": "MIT",
   "dependencies": {
+    "@xarples/utils": "0.0.0",
     "@panva/jose": "^1.6.1",
     "@types/oauth2orize": "^1.8.6",
     "express": "^4.17.1",
