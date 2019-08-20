@@ -1,6 +1,7 @@
 datasource pg {
   provider = "postgresql"
-  url      = env("ACCOUNTS_DB_HOST")
+  url      = "postgresql://accounts:accounts@accounts-db/accounts"
+
 }
 
 generator photon {
