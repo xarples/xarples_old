@@ -17,7 +17,15 @@ const server = new ApolloServer({
 
 if (!module.parent) {
   server.listen({ port: 5000 }).then(({ url }) => {
-    console.log(process.env.DB_HOST)
+    const db = setupDatabase()
+
+    db.connect().then(() => {
+      db.users.findMany().then(users => {
+        console.log(users)
+      })
+    })
+
+    console.log(process.env.ACCOUNTS_DB_HOST)
     logger.info(`Server listening on ${url}`)
   })
 
