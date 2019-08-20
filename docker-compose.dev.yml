@@ -10,7 +10,7 @@ services:
       - 5000:5000
     environment:
       - NODE_ENV=development
-      - DB_HOST=accounts-db
+      - ACCOUNTS_DB_HOST=accounts-db
     volumes: 
       - .:/usr/local/src/xarples
       - /usr/local/src/xarples/node_modules
