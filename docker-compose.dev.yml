@@ -10,7 +10,7 @@ services:
       - 5000:5000
     environment:
       - NODE_ENV=development
-      - ACCOUNTS_DB_HOST=accounts-db
+      - POSTGRES_URL=postgresql://accounts:accounts@accounts-db:5432/accounts
     volumes: 
       - .:/usr/local/src/xarples
       - /usr/local/src/xarples/node_modules

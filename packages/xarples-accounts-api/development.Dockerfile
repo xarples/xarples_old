@@ -1,5 +1,7 @@
 FROM node:10
 
+ENV POSTGRES_URL=postgresql://accounts:accounts@accounts-db:5432/accounts
+
 RUN groupadd -g 16752 xarples && useradd -u 16752 -g xarples xarples \
 && mkdir -p /usr/local/src/xarples \
 && mkdir -p /home/xarples \

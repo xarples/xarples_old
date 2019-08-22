@@ -1,6 +1,6 @@
 datasource pg {
   provider = "postgresql"
-  url      = "postgresql://accounts:accounts@accounts-db/accounts"
+  url      = env("POSTGRES_URL")
 
 }
 

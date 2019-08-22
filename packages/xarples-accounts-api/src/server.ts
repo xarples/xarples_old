@@ -23,9 +23,12 @@ if (!module.parent) {
       db.users.findMany().then(users => {
         console.log(users)
       })
+    }).catch(err => {
+      console.log(err)
+      console.log(err.message)
     })
 
-    console.log(process.env.ACCOUNTS_DB_HOST)
+    console.log(process.env.POSTGRES_URL)
     logger.info(`Server listening on ${url}`)
   })
 

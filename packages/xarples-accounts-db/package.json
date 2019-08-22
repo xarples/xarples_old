@@ -7,8 +7,9 @@
     "build": "tsc",
     "start": "ts-node src/script.ts",
     "seed": "ts-node prisma/seed.ts",
+    "migrate": "POSTGRES_URL=postgresql://accounts:accounts@localhost:5432/accounts prisma2 lift up",
     "generate": "prisma2 generate",
-    "postinstall": "prisma2 generate"
+    "postinstall": "POSTGRES_URL=postgresql://accounts:accounts@accounts-db:5432/accounts prisma2 generate"
   },
   "keywords": [
     "xarples",
