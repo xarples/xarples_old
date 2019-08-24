@@ -15,9 +15,9 @@ COPY ./package*.json /usr/local/src/xarples/
 
 RUN npm install
 
-COPY packages/xarples-utils /usr/local/src/xarples/packages/xarples-utils
-COPY packages/xarples-accounts-db /usr/local/src/xarples/packages/xarples-accounts-db
-COPY packages/xarples-accounts-api /usr/local/src/xarples/packages/xarples-accounts-api
+COPY packages/utils /usr/local/src/xarples/packages/utils
+COPY packages/accounts/accounts-db /usr/local/src/xarples/packages/accounts/accounts-db
+COPY packages/accounts/accounts-api /usr/local/src/xarples/packages/accounts/accounts-api
 COPY lerna.json /usr/local/src/xarples
 
 RUN chown -R xarples:root /usr/local/src/xarples
