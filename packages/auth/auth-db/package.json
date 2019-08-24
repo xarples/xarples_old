@@ -1,0 +1,29 @@
+{
+  "name": "@xarples/auth-db",
+  "version": "0.0.0",
+  "description": "Xarples auth db",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/script.ts",
+    "seed": "ts-node prisma/seed.ts",
+    "migrate": "POSTGRES_URL=postgresql://auth:auth@localhost:5432/auth prisma2 lift up",
+    "migrate:create": "POSTGRES_URL=postgresql://auth:auth@localhost:5432/auth prisma2 lift save --name",
+    "generate": "prisma2 generate",
+    "postinstall": "POSTGRES_URL=postgresql://auth:auth@auth-db:5432/auth prisma2 generate"
+  },
+  "keywords": [
+    "xarples",
+    "auth",
+    "db"
+  ],
+  "author": "xarples",
+  "license": "MIT",
+  "dependencies": {
+    "prisma2": "^2.0.0-preview-6.1"
+  },
+  "devDependencies": {
+    "husky": "^3.0.3",
+    "typescript": "^3.5.3"
+  }
+}
