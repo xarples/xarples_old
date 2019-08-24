@@ -8,6 +8,7 @@
     "start": "ts-node src/script.ts",
     "seed": "ts-node prisma/seed.ts",
     "migrate": "POSTGRES_URL=postgresql://accounts:accounts@localhost:5432/accounts prisma2 lift up",
+    "migrate:create": "POSTGRES_URL=postgresql://accounts:accounts@localhost:5432/accounts prisma2 lift save --name",
     "generate": "prisma2 generate",
     "postinstall": "POSTGRES_URL=postgresql://accounts:accounts@accounts-db:5432/accounts prisma2 generate"
   },

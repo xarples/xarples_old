@@ -1,36 +1,29 @@
 import { ApolloServer } from 'apollo-server'
-import utils from '@xarples/utils'
 import { setupDatabase } from '@xarples/accounts-db'
-
+import utils from '@xarples/utils'
 import schema from './schema'
 
 const logger = utils.logger.getLogger('@xarples/accounts')
-const utilsLogger = utils.logger.getLogger('@xarples/utils')
-
+const db = setupDatabase()
+const isDev = process.env.NODE_ENV !== 'production'
 const server = new ApolloServer({
   schema,
-  debug: true,
+  debug: isDev,
+
   context: {
-    db: setupDatabase()
+    db
   }
 })
 
 if (!module.parent) {
-  server.listen({ port: 5000 }).then(({ url }) => {
-    const db = setupDatabase()
-
-    db.connect().then(() => {
-      db.users.findMany().then(users => {
-        console.log(users)
-      })
-    }).catch(err => {
-      console.log(err)
-      console.log(err.message)
+  server.listen({ port: 5000 })
+    .then(({ url }) => {
+      logger.info(`Server listening on ${url}`)
     })
-
-    console.log(process.env.POSTGRES_URL)
-    logger.info(`Server listening on ${url}`)
-  })
+    .catch(err => {
+      logger.error(err.message)
+      logger.debug({ message: err.stack })
+    })
 
   // @ts-ignore
   process.on('SIGINT', utils.terminate(0, 'SIGINT'))

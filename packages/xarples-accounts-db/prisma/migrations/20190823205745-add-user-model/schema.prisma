@@ -1,6 +1,11 @@
-datasource db {
+datasource pg {
   provider = "postgresql"
-  url      = "postgresql://accounts:accounts@localhost:5432/accounts?schema=public"
+  url      = env("POSTGRES_URL")
+
+}
+
+generator photon {
+  provider = "photonjs"
 }
 
 model User {
