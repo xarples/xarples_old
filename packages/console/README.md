@@ -1,0 +1,3 @@
+# @xarples/console
+
+> Xarples console.

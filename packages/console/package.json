@@ -1,0 +1,19 @@
+{
+  "name": "@xarples/console",
+  "version": "0.0.0",
+  "description": "Xarples console",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "xarples",
+    "console"
+  ],
+  "author": "xarples",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^3.5.3"
+  }
+}
