@@ -9,12 +9,14 @@ generator photon {
 }
 
 model Client {
-  id    String  @default(cuid()) @id @unique
-  email String  @unique
-  username String  @unique
-  password String
-  firstName  String
-  lastName  String
+  id String  @default(cuid()) @id @unique
+  name String
+  homepage String?
+  logoUrl String?
+  description String?
+  redirecUri String
+  clientId String  @unique
+  clientSecret String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

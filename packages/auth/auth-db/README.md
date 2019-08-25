@@ -12,7 +12,7 @@ const db = setupDatabase()
 
 db.connect()
   .then(() => {
-    db.users.create({})
+    db.clients.create({})
   })
   .then(() => {
     db.disconnect()
