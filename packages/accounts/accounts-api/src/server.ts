@@ -9,30 +9,32 @@ const isDev = process.env.NODE_ENV !== 'production'
 const server = new ApolloServer({
   schema,
   debug: isDev,
-
   context: {
     db
   }
 })
 
-if (!module.parent) {
-  server.listen({ port: 5000 })
-    .then(({ url }) => {
-      logger.info(`Server listening on ${url}`)
-    })
-    .catch(err => {
-      logger.error(err.message)
-      logger.debug({ message: err.stack })
-    })
+async function start () {
+  try {
+    const { url } = await server.listen({ port: 5000 })
 
-  // @ts-ignore
-  process.on('SIGINT', utils.terminate(0, 'SIGINT'))
-  // @ts-ignore
-  process.on('SIGTERM', utils.terminate(0, 'SIGTERM'))
-  // @ts-ignore
-  process.on('uncaughtException', utils.terminate(1, 'uncaughtException'))
-  // @ts-ignore
-  process.on('unhandledRejection', utils.terminate(1, 'unhandledRejection'))
+    logger.info(`Server listening on ${url}`)
+      // @ts-ignore
+    process.on('SIGINT', utils.terminate(0, 'SIGINT'))
+    // @ts-ignore
+    process.on('SIGTERM', utils.terminate(0, 'SIGTERM'))
+    // @ts-ignore
+    process.on('uncaughtException', utils.terminate(1, 'uncaughtException'))
+    // @ts-ignore
+    process.on('unhandledRejection', utils.terminate(1, 'unhandledRejection'))
+  } catch (e) {
+    logger.error(e.message)
+    logger.debug({ message: e.stack })
+  }
+}
+
+if (!module.parent) {
+  start()
 }
 
 export default server
